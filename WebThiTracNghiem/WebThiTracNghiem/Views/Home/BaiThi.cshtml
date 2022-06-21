@@ -1,0 +1,83 @@
+﻿@model IEnumerable<WebThiTracNghiem.Areas.Admin.Data.BaiThiModel>
+@{
+    ViewBag.Title = "BaiThi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh Sách Bài Thi
+}
+
+<style>
+    .actions {
+        background-color: chartreuse;
+    }
+
+    th {
+        text-align: center
+    }
+
+    td {
+        text-align: center
+    }
+</style>
+
+<div class="actions" style="float:right; border:1px solid; margin-bottom:15px">
+    @*<a href="@Url.Action("Create", "DeThi")" class="btn sbold green">
+        Add New
+        <i class="fa fa-plus"></i>
+    </a>*@
+</div>
+@*<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"></h1>
+        </div>
+    </div>*@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Mã Đề</th>
+                                <th>Điểm</th>
+                                <th>Số Câu Đúng</th>
+                                <th>Thời Gian Làm Bài</th>
+                                @*<th>Tổng Câu Hỏi</th>*@
+                                @*<th></th>*@
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="odd gradeX" id="row_@item.MaBaiThi">
+                                    <td>@item.MaDe</td>
+                                    <td>@item.Diem10</td>
+                                    <td>@item.SoCauDung</td>
+                                    <td>@item.ThoiGianHoanThanh Phút</td>
+                                    @*<td>@item.TongCauHoi</td>*@
+                                    <td style="text-align:center">
+                                        <a class="btn btn-info  btn-outline  btn-sm edit-label" id="edit-@item.MaBaiThi" href="@Url.Action("ChiTietBaiThi", "Home",new { id=item.MaBaiThi})">
+                                            Detail
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+

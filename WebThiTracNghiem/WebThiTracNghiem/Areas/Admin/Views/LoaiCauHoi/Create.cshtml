@@ -1,0 +1,146 @@
+﻿@model WebThiTracNghiem.Areas.Admin.Data.LoaiCauHoiModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thêm Mới Loại Câu Hỏi
+}
+
+<style>
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thông Tin Loại Câu Hỏi
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @using (Html.BeginForm("Create", "LoaiCauHoi", FormMethod.Post, new { id = "create-new-form", role = "form", enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <div class="form-body">
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Mã Loại Câu Hỏi</label>
+                                    <div class="col-md-8" style="margin-bottom:20px">
+                                        @Html.TextBoxFor(model => model.MaLoaiCauHoi, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.MaLoaiCauHoi, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Tên Loại Câu Hỏi</label>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.TenLoaiCauHoi, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TenLoaiCauHoi, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                @*<div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Đáp Án A</label>
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(model => model.A, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.A, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Đáp Án B</label>
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(model => model.B, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.B, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Đáp Án C</label>
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(model => model.C, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.C, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Đáp Án D</label>
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(model => model.D, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.D, "", new { @class = "text-danger" })
+                                        <div class="form-control-focus"> </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Đáp Án Đúng</label>
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(model => model.DapAn, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.DapAn, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Tên Loại Câu Hỏi</label>
+                                    <div class="col-md-8">
+                                        @Html.DropDownList("MaLoaiCauHoi", (IEnumerable<SelectListItem>)ViewBag.LoaiCauHoi, "Please Select",
+                                   new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.MaLoaiCauHoi, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Tên Môn Thi</label>
+                                    <div class="col-md-8">
+                                        @Html.DropDownList("MaMon", (IEnumerable<SelectListItem>)ViewBag.MonThi, "Please Select",
+                                   new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.MaMon, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+
+                                <div class="form-group form-md-line-input">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Lưu" class="btn btn-default" />
+                                    </div>
+                                </div>
+
+                                @*<div class="form-group form-md-line-input">
+                                                            <label class="col-md-3 control-label">Tên Môn</label>
+                                                            <div class="col-md-9">
+                                                                @Html.DropDownList("TenMon", new SelectList(ViewBag.MonThi, "MaMon", "TenMon"), "Please Select",
+                                                           new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.MaMon, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group form-md-line-input">
+                                        <label class="col-md-3 control-label" for="customername">Images</label>
+                                        <div class="col-md-9">
+                                            <input type="file" name="ImageUpload" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="button" value="Lưu" class="btn btn-default" />
+                                        </div>
+                                    </div>*@
+                            </div>
+                        }
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+

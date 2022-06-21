@@ -1,0 +1,82 @@
+﻿@model WebThiTracNghiem.Areas.Admin.Data.QuyenModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thêm Mới Câu Hỏi
+}
+
+<style>
+    .form-group {
+        padding-bottom: 25px !important;
+    }
+
+    .control-label {
+        text-align: center
+    }
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thông Tin Câu Hỏi
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @using (Html.BeginForm("Edit", "Quyen", FormMethod.Post, new { id = "create-new-form", role = "form", enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <input type="hidden" name="Id" value="@Model.MaQuyen" />
+                            <div class="form-body">
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-2 control-label">Mã Quyền</label>
+                                    <div class="col-md-10">
+                                        @*@Html.TextBoxFor(model => model.MaQuyen, new { htmlAttributes = new { @class = "form-control" } })*@
+                                        <input type="text" value="@Model.MaQuyen" readonly name="MaQuyen"/>
+                                        @Html.ValidationMessageFor(model => model.MaQuyen, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-2 control-label">Tên Quyền</label>
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.TenQuyen, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TenQuyen, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-2 control-label">Mô Tả</label>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group form-md-line-input" style="padding-top:20px;">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Lưu" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+

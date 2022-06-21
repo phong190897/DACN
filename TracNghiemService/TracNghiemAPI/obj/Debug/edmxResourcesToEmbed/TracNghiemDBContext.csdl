@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TracNghiemAPI" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BaiThi">
+    <Key>
+      <PropertyRef Name="MaBaiThi" />
+    </Key>
+    <Property Name="MaBaiThi" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TaiKhoan" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MaDe" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="ThoiGianHoanThanh" Type="Int32" />
+    <Property Name="SoCauDung" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="Diem" Type="Int32" />
+    <Property Name="CauTraLoi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayThi" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DeThi" Relationship="Self.FK_BaiThi_DeThi" FromRole="BaiThi" ToRole="DeThi" />
+    <NavigationProperty Name="TaiKhoan1" Relationship="Self.FK_BaiThi_TaiKhoan" FromRole="BaiThi" ToRole="TaiKhoan" />
+  </EntityType>
+  <EntityType Name="CauHoi">
+    <Key>
+      <PropertyRef Name="MaCauHoi" />
+    </Key>
+    <Property Name="MaCauHoi" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenCauHoi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="A" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="B" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="C" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="D" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DapAn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="MaLoaiCauHoi" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="MaMon" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="LoaiCauHoi" Relationship="Self.FK_CauHoi_LoaiCauHoi" FromRole="CauHoi" ToRole="LoaiCauHoi" />
+    <NavigationProperty Name="MonThi" Relationship="Self.FK_CauHoi_MonThi" FromRole="CauHoi" ToRole="MonThi" />
+  </EntityType>
+  <EntityType Name="DeThi">
+    <Key>
+      <PropertyRef Name="MaDe" />
+    </Key>
+    <Property Name="MaDe" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaMon" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ChuThich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianLamBai" Type="Int32" Nullable="false" />
+    <Property Name="TacGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cauhoi" Type="String" FixedLength="false" Unicode="true" MaxLength="Max" />
+    <Property Name="TongCauHoi" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BaiThis" Relationship="Self.FK_BaiThi_DeThi" FromRole="DeThi" ToRole="BaiThi" />
+    <NavigationProperty Name="MonThi" Relationship="Self.FK_DeThi_MonThi1" FromRole="DeThi" ToRole="MonThi" />
+  </EntityType>
+  <EntityType Name="LoaiCauHoi">
+    <Key>
+      <PropertyRef Name="MaLoaiCauHoi" />
+    </Key>
+    <Property Name="MaLoaiCauHoi" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenLoaiCauHoi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CauHois" Relationship="Self.FK_CauHoi_LoaiCauHoi" FromRole="LoaiCauHoi" ToRole="CauHoi" />
+  </EntityType>
+  <EntityType Name="MonThi">
+    <Key>
+      <PropertyRef Name="MaMon" />
+    </Key>
+    <Property Name="MaMon" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenMon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CauHois" Relationship="Self.FK_CauHoi_MonThi" FromRole="MonThi" ToRole="CauHoi" />
+    <NavigationProperty Name="DeThis" Relationship="Self.FK_DeThi_MonThi1" FromRole="MonThi" ToRole="DeThi" />
+  </EntityType>
+  <EntityType Name="Quyen">
+    <Key>
+      <PropertyRef Name="MaQuyen" />
+    </Key>
+    <Property Name="MaQuyen" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenQuyen" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TaiKhoans" Relationship="Self.FK_TaiKhoan_Quyen" FromRole="Quyen" ToRole="TaiKhoan" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="TenTaiKhoan" />
+    </Key>
+    <Property Name="TenTaiKhoan" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GioiTinh" Type="Boolean" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaQuyen" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="BaiThis" Relationship="Self.FK_BaiThi_TaiKhoan" FromRole="TaiKhoan" ToRole="BaiThi" />
+    <NavigationProperty Name="Quyen" Relationship="Self.FK_TaiKhoan_Quyen" FromRole="TaiKhoan" ToRole="Quyen" />
+  </EntityType>
+  <Association Name="FK_BaiThi_DeThi">
+    <End Role="DeThi" Type="Self.DeThi" Multiplicity="0..1" />
+    <End Role="BaiThi" Type="Self.BaiThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeThi">
+        <PropertyRef Name="MaDe" />
+      </Principal>
+      <Dependent Role="BaiThi">
+        <PropertyRef Name="MaDe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BaiThi_TaiKhoan">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="BaiThi" Type="Self.BaiThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="TenTaiKhoan" />
+      </Principal>
+      <Dependent Role="BaiThi">
+        <PropertyRef Name="TaiKhoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CauHoi_LoaiCauHoi">
+    <End Role="LoaiCauHoi" Type="Self.LoaiCauHoi" Multiplicity="0..1" />
+    <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiCauHoi">
+        <PropertyRef Name="MaLoaiCauHoi" />
+      </Principal>
+      <Dependent Role="CauHoi">
+        <PropertyRef Name="MaLoaiCauHoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CauHoi_MonThi">
+    <End Role="MonThi" Type="Self.MonThi" Multiplicity="1" />
+    <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonThi">
+        <PropertyRef Name="MaMon" />
+      </Principal>
+      <Dependent Role="CauHoi">
+        <PropertyRef Name="MaMon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeThi_MonThi1">
+    <End Role="MonThi" Type="Self.MonThi" Multiplicity="1" />
+    <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonThi">
+        <PropertyRef Name="MaMon" />
+      </Principal>
+      <Dependent Role="DeThi">
+        <PropertyRef Name="MaMon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoan_Quyen">
+    <End Role="Quyen" Type="Self.Quyen" Multiplicity="1" />
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quyen">
+        <PropertyRef Name="MaQuyen" />
+      </Principal>
+      <Dependent Role="TaiKhoan">
+        <PropertyRef Name="MaQuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TracNghiemDataModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BaiThis" EntityType="Self.BaiThi" />
+    <EntitySet Name="CauHois" EntityType="Self.CauHoi" />
+    <EntitySet Name="DeThis" EntityType="Self.DeThi" />
+    <EntitySet Name="LoaiCauHois" EntityType="Self.LoaiCauHoi" />
+    <EntitySet Name="MonThis" EntityType="Self.MonThi" />
+    <EntitySet Name="Quyens" EntityType="Self.Quyen" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+    <AssociationSet Name="FK_BaiThi_DeThi" Association="Self.FK_BaiThi_DeThi">
+      <End Role="DeThi" EntitySet="DeThis" />
+      <End Role="BaiThi" EntitySet="BaiThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BaiThi_TaiKhoan" Association="Self.FK_BaiThi_TaiKhoan">
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+      <End Role="BaiThi" EntitySet="BaiThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CauHoi_LoaiCauHoi" Association="Self.FK_CauHoi_LoaiCauHoi">
+      <End Role="LoaiCauHoi" EntitySet="LoaiCauHois" />
+      <End Role="CauHoi" EntitySet="CauHois" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CauHoi_MonThi" Association="Self.FK_CauHoi_MonThi">
+      <End Role="MonThi" EntitySet="MonThis" />
+      <End Role="CauHoi" EntitySet="CauHois" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeThi_MonThi1" Association="Self.FK_DeThi_MonThi1">
+      <End Role="MonThi" EntitySet="MonThis" />
+      <End Role="DeThi" EntitySet="DeThis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaiKhoan_Quyen" Association="Self.FK_TaiKhoan_Quyen">
+      <End Role="Quyen" EntitySet="Quyens" />
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

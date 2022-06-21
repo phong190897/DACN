@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fad1563095914e88a1c2d191c068fe95" Name="Diagram1">
+        <EntityTypeShape EntityType="TracNghiemAPI.BaiThi" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemAPI.CauHoi" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemAPI.DeThi" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemAPI.LoaiCauHoi" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemAPI.MonThi" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemAPI.Quyen" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemAPI.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemAPI.TaiKhoan" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="TracNghiemAPI.FK_BaiThi_DeThi" ManuallyRouted="false" />
+        <AssociationConnector Association="TracNghiemAPI.FK_BaiThi_TaiKhoan" ManuallyRouted="false" />
+        <AssociationConnector Association="TracNghiemAPI.FK_CauHoi_LoaiCauHoi" ManuallyRouted="false" />
+        <AssociationConnector Association="TracNghiemAPI.FK_CauHoi_MonThi" ManuallyRouted="false" />
+        <AssociationConnector Association="TracNghiemAPI.FK_DeThi_MonThi1" ManuallyRouted="false" />
+        <AssociationConnector Association="TracNghiemAPI.FK_TaiKhoan_Quyen" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

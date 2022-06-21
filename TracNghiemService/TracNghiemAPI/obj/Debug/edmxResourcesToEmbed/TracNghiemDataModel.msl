@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TracNghiemModelsStoreContainer" CdmEntityContainer="TracNghiemDBContext">
+    <EntitySetMapping Name="BaiThis">
+      <EntityTypeMapping TypeName="TracNghiemModels.BaiThi">
+        <MappingFragment StoreEntitySet="BaiThi">
+          <ScalarProperty Name="NgayThi" ColumnName="NgayThi" />
+          <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+          <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+          <ScalarProperty Name="MaBaiThi" ColumnName="MaBaiThi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CauHois">
+      <EntityTypeMapping TypeName="TracNghiemModels.CauHoi">
+        <MappingFragment StoreEntitySet="CauHoi">
+          <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="DapAn" ColumnName="DapAn" />
+          <ScalarProperty Name="D" ColumnName="D" />
+          <ScalarProperty Name="C" ColumnName="C" />
+          <ScalarProperty Name="B" ColumnName="B" />
+          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="TenCauHoi" ColumnName="TenCauHoi" />
+          <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietDeThis">
+      <EntityTypeMapping TypeName="TracNghiemModels.ChiTietDeThi">
+        <MappingFragment StoreEntitySet="ChiTietDeThi">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+          <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietKetQuas">
+      <EntityTypeMapping TypeName="TracNghiemModels.ChiTietKetQua">
+        <MappingFragment StoreEntitySet="ChiTietKetQua">
+          <ScalarProperty Name="CauTraLoi" ColumnName="CauTraLoi" />
+          <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+          <ScalarProperty Name="MaKetQua" ColumnName="MaKetQua" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeThis">
+      <EntityTypeMapping TypeName="TracNghiemModels.DeThi">
+        <MappingFragment StoreEntitySet="DeThi">
+          <ScalarProperty Name="TongCauHoi" ColumnName="TongCauHoi" />
+          <ScalarProperty Name="TacGia" ColumnName="TacGia" />
+          <ScalarProperty Name="ThoiGianLamBai" ColumnName="ThoiGianLamBai" />
+          <ScalarProperty Name="ChuThich" ColumnName="ChuThich" />
+          <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+          <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KetQuas">
+      <EntityTypeMapping TypeName="TracNghiemModels.KetQua">
+        <MappingFragment StoreEntitySet="KetQua">
+          <ScalarProperty Name="SoCauDung" ColumnName="SoCauDung" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+          <ScalarProperty Name="ThoiGianHoanThanh" ColumnName="ThoiGianHoanThanh" />
+          <ScalarProperty Name="MaBaiThi" ColumnName="MaBaiThi" />
+          <ScalarProperty Name="MaKetQua" ColumnName="MaKetQua" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonThis">
+      <EntityTypeMapping TypeName="TracNghiemModels.MonThi">
+        <MappingFragment StoreEntitySet="MonThi">
+          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+          <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quyens">
+      <EntityTypeMapping TypeName="TracNghiemModels.Quyen">
+        <MappingFragment StoreEntitySet="Quyen">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+          <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TracNghiemModels.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="TracNghiemModels.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

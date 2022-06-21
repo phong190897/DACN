@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebThiTracNghiem.Areas.Admin.Data.DeThiModel>
+@{
+    ViewBag.Title = "ThongTinBaiThi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Bài Thi @ViewBag.MonThi
+}
+
+<style>
+    .DeThi {
+        padding: 15px 0px 10px 0px;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    table {
+    }
+
+    table, td, th {
+        border: 1px solid black;
+        text-align: center
+    }
+
+    .row {
+        text-align: center;
+    }
+</style>
+
+
+<table>
+    <tr class="row">
+        <th class="col-md-3">Mã Đề Thi</th>
+        <th class="col-md-3">Thời Gian Làm Bài ( Phút )</th>
+        <th class="col-md-3">Tổng Số Câu Hỏi</th>
+        <th class="col-md-3"></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="row">
+
+            <td>@item.MaDe</td>
+            <td>@item.ThoiGianLamBai</td>
+            <td>@item.TongCauHoi</td>
+            <td>
+                <a class="btn btn-info" style="margin-left:20px" id="edit-@item.MaDe" href="@Url.Action("LamBaiThi", "Home", new { ID = item.MaDe })" @*onclick="onEdit('@item.Id')"*@>
+                    <i class="fa fa-edit"></i>
+                    Làm Bài Thi
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+

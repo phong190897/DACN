@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thống Kê    
+}
+
+<style>
+    p{
+        font-size:30px;
+        border: 1px solid;
+        padding-left:5px;
+        border-radius:5px;
+        background-color:#f1d6a7;
+    }
+</style>
+
+<div class=" container">
+    <p>Tổng Số Bài Thi Hiện Có: @ViewBag.TongBaiThi Bài</p>
+    <p>Tổng Số Đề Thi Hiện Có: @ViewBag.TongDeThi Đề</p>
+    <p>Đề Thi Được Thực Hiện Nhất: @ViewBag.MaxDeThi.MaDe - Số Lần : @ViewBag.MaxDeThi.SoLan Lần</p>
+    <p>Tài Khoản Thực Hiện Nhiều Bài Thi Nhất: @ViewBag.MaxUserThiNhieuNhat.TenTK</p>
+</div>

@@ -1,0 +1,68 @@
+﻿@model WebThiTracNghiem.Areas.Admin.Data.MonModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thêm Mới Môn Thi
+}
+
+<style>
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thông Tin Môn Thi
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @using (Html.BeginForm("Create", "MonThi", FormMethod.Post, new { id = "create-new-form", role = "form", enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <div class="form-body">
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Mã Môn Thi</label>
+                                    <div class="col-md-8" style="margin-bottom:20px">
+                                        @Html.TextBoxFor(model => model.MaMon, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.MaMon, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input">
+                                    <label class="col-md-4 control-label">Tên Môn Thi</label>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.TenMon, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TenMon, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group form-md-line-input">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Lưu" class="btn btn-default" />
+                                    </div>
+                                </div>
+
+                   
+                            </div>
+                        }
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+

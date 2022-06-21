@@ -1,0 +1,40 @@
+﻿@model WebThiTracNghiem.Areas.Admin.Data.DeThiModel
+@{
+    ViewBag.Title = "LamBaiThi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h2{
+        text-align:center
+    }
+
+    .container{
+        text-align:center;
+        font-size:15px;
+    }
+
+    fieldset{
+        border: 1px solid #ddd !important;
+         text-align:center;
+    }
+</style>
+
+@section header{}
+
+<div class="container">
+    <fieldset>
+        <legend style="font-size:50px">Bài Thi</legend>
+        <h2>@ViewBag.MonThi</h2>
+        <div>
+            <p>Người ra đề: @Model.TacGia</p>
+            <p>Thời gian làm bài: @Model.ThoiGianLamBai - Tổng số câu hỏi: @Model.TongCauHoi</p>
+            <p>Chú Thích: @Model.ChuThich</p>
+            <a class="btn btn-info" style="margin-bottom:20px" id="edit-@Model.MaDe" href="@Url.Action("BatDau", "Home", new { ID = Model.MaDe })" @*onclick="onEdit('@item.Id')"*@>
+                <i class="fa fa-play"></i>
+                Bắt Đầu
+            </a>
+        </div>
+    </fieldset>
+</div>
+

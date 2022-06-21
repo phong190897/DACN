@@ -1,0 +1,103 @@
+﻿@model WebThiTracNghiem.Areas.Admin.Data.DetailsBaiThiViewModel
+@{
+    ViewBag.Title = "ChiTietBaiThi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Chi Tiết Bài Thi
+}
+
+@{
+    int i = 1;
+}
+
+<div class="container" style="text-align:center">
+    <p>Mã Đề: @Model.BaiThi.MaDe</p>
+    <p>Thời Gian Làm Bài: @Model.BaiThi.ThoiGianHoanThanh Phút</p>
+    <p>Số Câu Đúng: @Model.BaiThi.SoCauDung / @Model.DeThi.TongCauHoi</p>
+    <p>Điểm : @Model.BaiThi.Diem10</p>
+</div>
+
+@foreach (var item in Model.CauHois)
+{
+    <div class="containerCustom">
+        <div class="row" style="font-weight:900">
+            @i /  @item.TenCauHoi
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(item.DapAnChu))
+                {
+                    if (item.DapAnChu.Contains("A"))
+                    {
+                        <input type="radio" name="answer_@item.MaCauHoi" checked value="@item.A" id="A_@item.MaCauHoi" />
+                    }
+                }
+                else
+                {
+                    <input type="radio" name="answer_@item.MaCauHoi" value="@item.A" id="A_@item.MaCauHoi" />
+                }
+                <label for="A_@item.MaCauHoi" style="font-style:normal"><strong style="padding-left:3px;">A/</strong> @item.A</label>
+
+            </div>
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(item.DapAnChu))
+                {
+                    if (item.DapAnChu.Contains("B"))
+                    {
+                        <input type="radio" name="answer_@item.MaCauHoi" checked value="@item.B" id="B_@item.MaCauHoi" />
+                    }
+                }
+                else
+                {
+                    <input type="radio" name="answer_@item.MaCauHoi" value="@item.B" id="B_@item.MaCauHoi" />
+                }
+                <label for="B_@item.MaCauHoi"><strong style="padding-left:3px;">B/</strong> @item.B</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(item.DapAnChu))
+                {
+                    if (item.DapAnChu.Contains("C"))
+                    {
+                        <input type="radio" name="answer_@item.MaCauHoi" checked value="@item.C" id="C_@item.MaCauHoi" />
+                    }
+                }
+                else
+                {
+                    <input type="radio" name="answer_@item.MaCauHoi" value="@item.C" id="C_@item.MaCauHoi" />
+                }
+                <label for="C_@item.MaCauHoi"><strong style="padding-left:3px;">C/</strong> @item.C</label>
+            </div>
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(item.DapAnChu))
+                {
+                    if (item.DapAnChu.Contains("D"))
+                    {
+                        <input type="radio" name="answer_@item.MaCauHoi" checked value="@item.D" id="D_@item.MaCauHoi" />
+                    }
+                }
+                else
+                {
+                    <input type="radio" name="answer_@item.MaCauHoi" value="@item.D" id="D_@item.MaCauHoi" />
+                }
+                <label for="D_@item.MaCauHoi"><strong style="padding-left:3px;">D/</strong> @item.D</label>
+            </div>
+        </div>
+        <p class="col-md-12" style="background-color:antiquewhite"><strong>Đáp Án:</strong> @item.DapAn</p>
+        <br />
+        <hr />
+    </div>
+
+    i++;
+}
+
+<div class="row" style="text-align:center; margin-top:45px; margin-bottom:30px">
+    <a class="btn btn-info" href="@Url.Action("BaiThi", "Home")">
+        <i class="fa fa-play"></i>
+        Danh Sách Bài Thi
+    </a>
+
+</div>
